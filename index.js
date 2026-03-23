@@ -1,5 +1,5 @@
 import express from "express";
-import Database from "better-sqlite3";
+import { DatabaseSync } from "node:sqlite";
 import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
@@ -22,8 +22,8 @@ if (!fs.existsSync(dbDir)) {
   fs.mkdirSync(dbDir);
 }
 
-// Initialisation de la base de données (synchrone avec better-sqlite3)
-const db = new Database(dbPath);
+// Initialisation de la base de données (synchrone avec node:sqlite)
+const db = new DatabaseSync(dbPath);
 
 // Création des tables
 db.exec(`

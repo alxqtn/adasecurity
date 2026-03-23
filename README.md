@@ -20,14 +20,14 @@ npm start
 
 ## 📋 Exploitation
 
-### Attaque 1 : Se connecter en tant qu'alice sans mot de passe
+### Attaque 1 : Se connecter en tant que bob sans mot de passe
 
 #### Valeurs à entrer
-- **Nom d'utilisateur** : `alice' --`
+- **Nom d'utilisateur** : `bob' --`
 - **Mot de passe** : `nimportequoi`
 
 #### Résultat
-✅ Connecté en tant qu'alice SANS connaître son mot de passe !
+✅ Connecté en tant que bob SANS connaître son mot de passe !
 
 ---
 
