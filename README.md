@@ -347,5 +347,4 @@ import DOMPurify from 'dompurify';
 ## 📚 Ressources supplémentaires
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [OWASP XSS Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
-- [OWASP SQL Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+- [Web Security Academy by PortSwigger](https://portswigger.net/web-security/all-topics)
