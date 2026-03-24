@@ -291,6 +291,40 @@ postDiv.querySelector('.post-content').textContent = post.content;
 
 ---
 
+## 📚 Les autres types de XSS
+
+**L'exemple ci-dessus est un XSS stocké** (payload enregistré en base et exécuté pour tous les visiteurs).
+
+### XSS Réfléchi
+
+Payload non stocké — il est "réfléchi" immédiatement par le serveur. Exemple : un lien piégé `site.com/search?q=<script>evil()</script>` où la page affiche le terme recherché sans échapper. La victime doit cliquer sur le lien pour être infectée.
+
+---
+
+## 🛡️ React protège par défaut
+
+**Bonne nouvelle :** React échappe automatiquement les valeurs dans le JSX. `<div>{userInput}</div>` est sécurisé.
+
+**⚠️ Attention :** Il reste des risques si vous utilisez des inputs utilisateur dans :
+
+1. **`dangerouslySetInnerHTML`** — nécessite une sanitization :
+```jsx
+import DOMPurify from 'dompurify';
+<div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(userInput) }} />
+```
+
+2. **Les liens `href`/`src`** — React ne protège PAS contre `javascript:` :
+```jsx
+// ❌ DANGEREUX — l'utilisateur peut injecter javascript:alert(1)
+<a href={userWebsite}>Mon site</a>
+<img src={userImage} />
+
+// ✅ SÉCURISÉ — vérifier le protocole
+<a href={userWebsite?.startsWith('http') ? userWebsite : '#'}>Mon site</a>
+```
+
+---
+
 # 📝 Résumé des modifications
 
 | Faille | Fichier | Modification |
